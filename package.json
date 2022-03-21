@@ -10,13 +10,13 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:omnia.helloWorld"
+		"onCommand:omnia.addFileFromItemTemplate"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "omnia.helloWorld",
+				"command": "omnia.addFileFromItemTemplate",
 				"title": "Omnia: File from template"
 			}
 		]

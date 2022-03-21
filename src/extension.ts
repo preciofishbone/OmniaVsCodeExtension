@@ -17,7 +17,7 @@ export function activate(context: vscode.ExtensionContext) {
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with registerCommand
 	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('omnia.helloWorld', async () => {
+	let disposable = vscode.commands.registerCommand('omnia.addFileFromItemTemplate', async () => {
 
 		//https://github.com/dkundel/vscode-new-file/blob/86c2d65a3eb24ffb55e284fd20a3ac58c3828271/src/extension.ts#L14
 		//https://github.com/brpaz/vscode-file-templates-ext/blob/master/src/commands/fileFromTemplateCommand.ts
@@ -59,15 +59,17 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 
 		let tokens = "";
-		for (const token of template.tokens) {
+		if (template.tokens) {
+			for (const token of template.tokens) {
 
-			let tokenValue = await vscode.window.showInputBox({ title: `Enter ${token.name}` });
-			if (tokenValue === undefined || tokenValue === "") {
-				vscode.window.showErrorMessage(`The token value: ${token.name} is required`);
-				break;
-			}
-			tokens += `${token.name}=${tokenValue}`;
-		};
+				let tokenValue = await vscode.window.showInputBox({ title: `Enter ${token.name}` });
+				if (tokenValue === undefined || tokenValue === "") {
+					vscode.window.showErrorMessage(`The token value: ${token.name} is required`);
+					break;
+				}
+				tokens += `${token.name}=${tokenValue}`;
+			};
+		}
 
 		TemplateService.createFromTemplate(template, name, tokens);
 

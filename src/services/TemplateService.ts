@@ -23,9 +23,7 @@ export class TemplateService {
     private static async ensureTemplates() {
 
         const curr = await VsCodeService.getCurrentFolder();
-        console.dir('current:' + curr);
-        //cp.exec(`cd ${curr} && dir`);
-        console.log(await this.execShell(`cd ${curr} && dir`));
+
         let templatesJson = await this.execShell("omnia dev new -l -j");
         //Rmeove line breaks from cmd output
         templatesJson = templatesJson.replace(/(\r\n|\n|\r)/gm, "");
