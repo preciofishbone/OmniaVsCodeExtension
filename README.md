@@ -1,1 +1,1 @@
-# Omnia VsCode Extension
+# Omnia Visual Studio Code Extension
