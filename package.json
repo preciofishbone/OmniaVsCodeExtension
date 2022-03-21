@@ -19,7 +19,16 @@
 				"command": "omnia.addFileFromItemTemplate",
 				"title": "Omnia: File from template"
 			}
-		]
+		],
+		"menus": {
+			"explorer/context": [
+				{
+					"when": "explorerResourceIsFolder",
+					"command": "omnia.addFileFromItemTemplate",
+					"group": "navigation@10"
+				}
+			]
+		}
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",

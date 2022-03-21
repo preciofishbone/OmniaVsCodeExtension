@@ -34,17 +34,25 @@ export function activate(context: vscode.ExtensionContext) {
 
 
 
-		const templates = await TemplateService.getItemTemplates();
 
-		let templateNames: Array<vscode.QuickPickItem> = [];
-		templates.forEach(item => {
-			templateNames.push({
-				label: item.name,
-				description: item.description
+
+		let templates: Array<ItemTemplate> = [];
+		let promise = new Promise<Array<vscode.QuickPickItem>>(async (resolve, reject) => {
+
+			templates = await TemplateService.getItemTemplates();
+			let templateNames: Array<vscode.QuickPickItem> = [];
+			templates.forEach(item => {
+				templateNames.push({
+					label: item.name,
+					description: item.description
+				});
 			});
+
+			resolve(templateNames);
 		});
 
-		let selectedTemplate = await vscode.window.showQuickPick(templateNames);
+
+		let selectedTemplate = await vscode.window.showQuickPick(promise);
 
 		const name = await vscode.window.showInputBox({ title: "Enter filename without extension" });
 		if (!name) {
