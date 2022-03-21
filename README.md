@@ -1,1 +1,1 @@
-# OmniaVsCodeExtension
+# Omnia VsCode Extension
