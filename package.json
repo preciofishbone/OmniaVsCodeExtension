@@ -1,8 +1,15 @@
 {
-	"name": "omnia",
-	"displayName": "Omnia",
-	"description": "Templates for Omnia Development",
+	"name": "omniafx",
+	"displayName": "OmniaFx Tooling",
+	"description": "Tooling for OmniaFx Development",
+	"icon": "images/omniafx.png",
+	"homepage": "https://fx.omniacloud.net",
 	"version": "0.0.1",
+	"publisher": "PrecioFishbone",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/preciofishbone/OmniaVsCodeExtension"
+	},
 	"engines": {
 		"vscode": "^1.65.0"
 	},
