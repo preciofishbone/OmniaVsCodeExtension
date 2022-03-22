@@ -1,4 +1,4 @@
-# OmniaFx Tooling
+# VsCode OmniaFx Tooling
 
 Extends Visual Studio Code with features to make [OmniaFx](https://fx.omniacloud.net) development a breeze
 
